@@ -74,8 +74,41 @@ Expected response:
 {"status":"ok"}
 ```
 
+## Deploy to Vercel
+
+This repo includes a Vercel entrypoint at `api/index.py` and routes all paths to the FastAPI app through `vercel.json`.
+
+1. Push the repo to GitHub.
+
+2. In Vercel, import the GitHub repo.
+
+3. Add these Environment Variables in the Vercel project settings:
+
+   - `LINE_CHANNEL_ACCESS_TOKEN`
+   - `LINE_CHANNEL_SECRET`
+   - `OPENAI_API_KEY`
+   - `OPENAI_MODEL`
+   - `BOT_TRIGGER_PREFIX`
+   - `LINE_BOT_USER_ID` or `LINE_BOT_MENTION_NAME`, optional
+   - `BOT_SYSTEM_PROMPT`
+
+4. Deploy the project.
+
+5. After deployment, set the LINE webhook URL to:
+
+   ```text
+   https://your-vercel-project.vercel.app/callback
+   ```
+
+6. Open the health check URL:
+
+   ```text
+   https://your-vercel-project.vercel.app/health
+   ```
+
 ## References
 
 - OpenAI Responses API: https://platform.openai.com/docs/api-reference/responses
 - OpenAI quickstart: https://platform.openai.com/docs/quickstart
 - LINE Python SDK: https://github.com/line/line-bot-sdk-python
+- Vercel FastAPI docs: https://vercel.com/docs/frameworks/backend/fastapi

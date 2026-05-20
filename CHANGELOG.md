@@ -7,3 +7,4 @@
 - Add group trigger behavior for `/ask` and optional bot mentions.
 - Add setup and usage documentation.
 - Add Python environment git ignores.
+- Add Vercel deployment entrypoint and routing configuration.
